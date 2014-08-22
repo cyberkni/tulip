@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: Fei.Liu
+Build-Jdk: 1.6.0_45
+Created-By: 1.6.0_45 (Oracle Corporation)
+Implementation-Title: Tulip
+Implementation-Version: 1.0.0-RELEASE
+Implementation-Vendor-Id: Tulip
+Specification-Title: Tulip
+Specification-Version: 1.0.0-RELEASE
+Extension-Name: Tulip
+Specification-Vendor: Fei.Liu
+Implementation-Vendor: Fei.Liu

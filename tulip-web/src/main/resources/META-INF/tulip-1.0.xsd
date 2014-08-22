@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.itjiehun.com/schema/tulip/service" 
+			xmlns:tns="http://www.itjiehun.com/schema/tulip/service" 
+			targetNamespace="http://www.itjiehun.com/schema/tulip/service" 
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xsd:complexType name="identified-type" abstract="true">
+		<xsd:attribute name="id" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	
+	<xsd:element name="tulip" type="tulip-type"/>
+	
+	<xsd:complexType name="tulip-type">
+		<xsd:complexContent>
+			<xsd:extension base="identified-type">
+				<xsd:group ref="tulip-elements"/>
+				<xsd:attributeGroup ref="tulip-attributes"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:group name="tulip-elements">
+		<xsd:sequence>
+			<xsd:choice></xsd:choice>
+			<xsd:element ref="common"/>
+			<xsd:element ref="engine"/>
+			<xsd:element ref="cartridge"/>
+			<xsd:element ref="resolver"/>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="controller"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:group>
+
+	<xsd:element name="common" type="common-type"/>
+	<xsd:element name="engine" type="engine-type"/>
+	<xsd:element name="cartridge" type="cartridge-type"/>
+	<xsd:element name="resolver" type="resolver-type"/>
+	<xsd:element name="controller" type="controller-type"/>
+	
+	<xsd:complexType name="common-type">
+		<xsd:sequence>
+			<xsd:element name="template-dir" type="template-dir-type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="engine-type">
+		<xsd:sequence>
+			<xsd:element name="runtime.log" type="defaultable-boolean"/>
+			<xsd:element name="runtime.log.logsystem.class" type="defaultable-boolean"/>
+			<xsd:element name="runtime.references.strict" type="defaultable-boolean"/>
+			<xsd:element name="runtime.references.strict.escape" type="defaultable-boolean"/>
+			<xsd:element name="runtime.log.invalid.references" type="defaultable-boolean"/>
+			<xsd:element name="directive.foreach.counter.name" type="defaultable-boolean"/>
+			<xsd:element name="directive.foreach.iterator.name" type="defaultable-boolean"/>
+			<xsd:element name="directive.foreach.counter.initial.value" type="defaultable-boolean"/>
+			<xsd:element name="directive.foreach.maxloops" type="defaultable-boolean"/>
+			<xsd:element name="directive.foreach.skip.invalid" type="defaultable-boolean"/>
+			<xsd:element name="directive.set.null.allowed" type="defaultable-boolean"/>
+			<xsd:element name="directive.if.tostring.nullcheck" type="defaultable-boolean"/>
+			<xsd:element name="directive.include.output.errormsg.start" type="defaultable-boolean"/>
+			<xsd:element name="directive.include.output.errormsg.end" type="defaultable-boolean"/>
+			<xsd:element name="directive.parse.max.depth" type="defaultable-boolean"/>
+			<xsd:element name="directive.define.max.depth" type="defaultable-boolean"/>
+			<xsd:element name="directive.evaluate.context.class" type="defaultable-boolean"/>
+			<xsd:element name="provide.scope.control" type="defaultable-boolean"/>
+			<xsd:element name="resource.manager.class" type="defaultable-boolean"/>
+			<xsd:element name="resource.manager.cache.class" type="defaultable-boolean"/>
+			<xsd:element name="resource.manager.cache.size" type="defaultable-boolean"/>
+			<xsd:element name="resource.manager.defaultcache.size" type="defaultable-boolean"/>
+			<xsd:element name="resource.manager.logwhenfound" type="defaultable-boolean"/>
+			<xsd:element name="resource.loader" type="defaultable-boolean"/>
+			<xsd:element name="file.resource.loader.path" type="defaultable-boolean"/>
+			<xsd:element name="file.resource.loader.cache" type="defaultable-boolean"/>
+			<xsd:element name="eventhandler.referenceinsertion.class" type="defaultable-boolean"/>
+			<xsd:element name="eventhandler.nullset.class" type="defaultable-boolean"/>
+			<xsd:element name="eventhandler.methodexception.class" type="defaultable-boolean"/>
+			<xsd:element name="eventhandler.include.class" type="defaultable-boolean"/>
+			<xsd:element name="eventhandler.invalidreferences.class" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.library" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.library.autoreload" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.permissions.allow.inline" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.permissions.allow.inline.to.replace.global" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.permissions.allow.inline.local.scope" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.messages.on" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.context.localscope" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.arguments.strict" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.max.depth" type="defaultable-boolean"/>
+			<xsd:element name="velocimacro.body.reference" type="defaultable-boolean"/>
+			<xsd:element name="runtime.interpolate.string.literals" type="defaultable-boolean"/>
+			<xsd:element name="input.encoding" type="defaultable-boolean"/>
+			<xsd:element name="output.encoding" type="defaultable-boolean"/>
+			<xsd:element name="runtime.introspector.uberspect" type="defaultable-boolean"/>
+			<xsd:element name="introspector.restrict.packages" type="defaultable-boolean"/>
+			<xsd:element name="introspector.restrict.classes" type="defaultable-boolean"/>
+			<xsd:element name="runtime.strict.math" type="defaultable-boolean"/>
+			<xsd:element name="parser.pool.class" type="defaultable-boolean"/>
+			<xsd:element name="parser.pool.size" type="defaultable-boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="controller-type">
+		
+	</xsd:complexType>
+	
+	<xsd:complexType name="cartridge-type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="handler" type="common-value-type"/>
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:complexType name="resolver-type">
+		<xsd:sequence>
+			<xsd:element name="screen-dir" type="screen-dir-type"/>
+			<xsd:element name="layout-dir" type="layout-dir-type"/>
+			<xsd:element name="default-layout" type="default-layout-type"/>
+			<xsd:element name="screen-key" type="screen-key-type"/>
+			<xsd:element name="suffix" type="suffix-type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="template-dir-type">
+		<xsd:attribute name="value" type="xsd:string" default="WEB-INF/templates"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="screen-dir-type">
+		<xsd:attribute name="value" type="xsd:string" default="screen"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="layout-dir-type">
+		<xsd:attribute name="value" type="xsd:string" default="layout"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="default-layout-type">
+		<xsd:attribute name="value" type="xsd:string" default="default"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="screen-key-type">
+		<xsd:attribute name="value" type="xsd:string" default="screen_placeholder"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="suffix-type">
+		<xsd:attribute name="value" type="xsd:string" default=".vm"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="common-value-type">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="defaultable-boolean">
+		<xsd:attribute name="value" default="true">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="true"/>
+					<xsd:enumeration value="false"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:attributeGroup name="tulip-attributes">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="class" type="xsd:string"/>
+		<xsd:attribute name="lazy-init" type="xsd:boolean" default="true"/>
+		<xsd:attribute name="parent" type="xsd:string"/>
+		<xsd:attribute name="abstract" type="xsd:boolean" default="false"/>
+		<xsd:attribute name="depends-on" type="xsd:string"/>
+		<xsd:attribute name="autowire-candidate" type="xsd:boolean" default="true"/>
+		<xsd:attribute name="primary" type="xsd:boolean"/>
+		<xsd:attribute name="init-method" type="xsd:string"/>
+		<xsd:attribute name="destroy-method" type="xsd:string"/>
+		<xsd:attribute name="factory-method" type="xsd:string"/>
+		<xsd:attribute name="factory-bean" type="xsd:string"/>
+		<xsd:attribute name="dependency-check" type="xsd:string"/>
+		<xsd:attribute name="autowire" default="byName">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="no"/>
+					<xsd:enumeration value="byName"/>
+					<xsd:enumeration value="byType"/>
+					<xsd:enumeration value="constructor"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="scope" default="singleton">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="singleton"/>
+					<xsd:enumeration value="prototype"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	
+	
+</xsd:schema>

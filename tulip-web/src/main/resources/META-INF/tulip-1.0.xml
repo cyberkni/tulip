@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans 
+    xmlns="http://www.itjiehun.com/schema/tulip/service"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.itjiehun.com/schema/tulip/service http://www.itjiehun.com/schema/tulip/service-1.0.xsd
+        http://www.itjiehun.com/schema/tulip/service tulip-1.0.xsd">
+    
+    <tulip id="tulip">
+    	<common>
+    		<template-dir value="WEB-INF/templates"/>
+    	</common>
+    	<cartridge>
+    		<handler value="tulip.web.configurer.RenderableInsertionEventHandler"/>
+    	</cartridge>
+    	<resolver>
+    		<screen-dir value="screen"/>
+    		<layout-dir value="layout"/>
+    		<screen-key value="screen_placeholder"/>
+    		<default-layout value="default"/>
+    		<suffix value=".vm"/>
+    	</resolver>
+    </tulip>
+
+</beans:beans>
