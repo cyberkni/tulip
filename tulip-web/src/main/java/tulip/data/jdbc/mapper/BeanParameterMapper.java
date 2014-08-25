@@ -2,6 +2,7 @@ package tulip.data.jdbc.mapper;
 
 import java.beans.PropertyDescriptor;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -104,5 +105,11 @@ public class BeanParameterMapper extends AbstractSqlParameterSource {
 	
 	public static MapSqlParameterSource newMapParameterMapper(Map<String, ?> paramMap) {
 		return new MapSqlParameterSource(paramMap);
+	}
+	
+	public static MapSqlParameterSource newSingleParameterMapper(String name, Object value) {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put(name, value);
+		return newMapParameterMapper(paramMap);
 	}
 }

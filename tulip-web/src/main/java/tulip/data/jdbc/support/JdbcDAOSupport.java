@@ -5,6 +5,8 @@ import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import tulip.data.jdbc.named.NamedJdbcTemplate;
@@ -18,13 +20,24 @@ public class JdbcDAOSupport implements InitializingBean {
 
 	protected final Log log = LogFactory.getLog(getClass());
 
+	@Autowired
+	@Qualifier(value="jdbcTemplate")
 	protected NamedJdbcTemplate jdbcTemplate;
 
 	@Override
-	public void afterPropertiesSet() throws Exception {
+	public final void afterPropertiesSet() throws Exception {
 		if (jdbcTemplate == null) {
 			throw new IllegalArgumentException("'dataSource' or 'jdbcTemplate' is required");
 		}
+		try {
+			initialize();
+		} catch (Exception e) {
+			log.error("DAO Initialize Error.", e);
+		}
+	}
+	
+	protected void initialize() throws Exception {
+		
 	}
 
 	public final void setDataSource(DataSource dataSource) {
