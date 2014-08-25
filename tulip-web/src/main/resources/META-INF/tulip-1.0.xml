@@ -12,7 +12,11 @@
     	<common>
     		<template-dir value="WEB-INF/templates"/>
     	</common>
+    	<engine>
+    		<directive.foreach.skip.invalid value="true"/>
+    	</engine>
     	<cartridge>
+    		<handler value="tulip.web.configurer.RenderableInsertionEventHandler"/>
     		<handler value="tulip.web.configurer.RenderableInsertionEventHandler"/>
     	</cartridge>
     	<resolver>

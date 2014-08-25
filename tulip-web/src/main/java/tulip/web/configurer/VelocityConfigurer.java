@@ -2,6 +2,7 @@ package tulip.web.configurer;
 
 import java.io.IOException;
 
+import org.apache.commons.collections.ExtendedProperties;
 import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.exception.VelocityException;
@@ -64,6 +65,13 @@ public class VelocityConfigurer extends org.springframework.web.servlet.view.vel
 	protected String inputEncoding = null;
 	/** outputEncoding */
 	protected String outputEncoding = null;
+	
+	public static void main(String[] args) {
+		ExtendedProperties overridingProperties = new ExtendedProperties();
+		overridingProperties.addProperty(RuntimeConstants.RESOURCE_LOADER, WEBAPP_RESOURCE_LOADER);
+		overridingProperties.addProperty(RuntimeConstants.RESOURCE_LOADER, FILE_RESOURCE_LOADER);
+		System.out.println(overridingProperties.getProperty(RuntimeConstants.RESOURCE_LOADER));
+	}
 
 	@Override
 	public void afterPropertiesSet() throws IOException, VelocityException {

@@ -22,7 +22,6 @@
 	
 	<xsd:group name="tulip-elements">
 		<xsd:sequence>
-			<xsd:choice></xsd:choice>
 			<xsd:element ref="common"/>
 			<xsd:element ref="engine"/>
 			<xsd:element ref="cartridge"/>
@@ -49,9 +48,12 @@
 		<xsd:sequence>
 			<xsd:element name="runtime.log" type="defaultable-boolean"/>
 			<xsd:element name="runtime.log.logsystem.class" type="defaultable-boolean"/>
+			
 			<xsd:element name="runtime.references.strict" type="defaultable-boolean"/>
 			<xsd:element name="runtime.references.strict.escape" type="defaultable-boolean"/>
+			
 			<xsd:element name="runtime.log.invalid.references" type="defaultable-boolean"/>
+			
 			<xsd:element name="directive.foreach.counter.name" type="defaultable-boolean"/>
 			<xsd:element name="directive.foreach.iterator.name" type="defaultable-boolean"/>
 			<xsd:element name="directive.foreach.counter.initial.value" type="defaultable-boolean"/>
@@ -64,15 +66,19 @@
 			<xsd:element name="directive.parse.max.depth" type="defaultable-boolean"/>
 			<xsd:element name="directive.define.max.depth" type="defaultable-boolean"/>
 			<xsd:element name="directive.evaluate.context.class" type="defaultable-boolean"/>
+			
 			<xsd:element name="provide.scope.control" type="defaultable-boolean"/>
+			
 			<xsd:element name="resource.manager.class" type="defaultable-boolean"/>
 			<xsd:element name="resource.manager.cache.class" type="defaultable-boolean"/>
 			<xsd:element name="resource.manager.cache.size" type="defaultable-boolean"/>
 			<xsd:element name="resource.manager.defaultcache.size" type="defaultable-boolean"/>
 			<xsd:element name="resource.manager.logwhenfound" type="defaultable-boolean"/>
 			<xsd:element name="resource.loader" type="defaultable-boolean"/>
+			
 			<xsd:element name="file.resource.loader.path" type="defaultable-boolean"/>
 			<xsd:element name="file.resource.loader.cache" type="defaultable-boolean"/>
+			
 			<xsd:element name="eventhandler.referenceinsertion.class" type="defaultable-boolean"/>
 			<xsd:element name="eventhandler.nullset.class" type="defaultable-boolean"/>
 			<xsd:element name="eventhandler.methodexception.class" type="defaultable-boolean"/>
@@ -97,6 +103,7 @@
 			<xsd:element name="runtime.strict.math" type="defaultable-boolean"/>
 			<xsd:element name="parser.pool.class" type="defaultable-boolean"/>
 			<xsd:element name="parser.pool.size" type="defaultable-boolean"/>
+			
 		</xsd:sequence>
 	</xsd:complexType>
 	
