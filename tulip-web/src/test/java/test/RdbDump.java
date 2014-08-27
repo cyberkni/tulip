@@ -15,6 +15,7 @@ import org.apache.commons.lang.StringUtils;
  * @since 2014年8月26日 下午7:42:58
  */
 public class RdbDump {
+	
 	public static void main1(String[] args) {
 		double d = 14781027 / 0.88;
 		NumberFormat CURRENCY_INSTANCE = NumberFormat.getCurrencyInstance();
@@ -23,6 +24,7 @@ public class RdbDump {
 
 	public static void main(String[] args) throws Exception {
 		// 生成内存数据报告
+		//config set stop-writes-on-bgsave-error no
 		// rdb -c memory /var/lib/redis/dump.rdb > memory.csv
 		// Runtime.getRuntime().exec("rdb -c memory /var/lib/redis/dump.rdb > memory.csv");
 		// database,type,key,size_in_bytes,encoding,num_elements,len_largest_element
