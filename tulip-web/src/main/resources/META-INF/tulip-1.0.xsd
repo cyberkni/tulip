@@ -15,37 +15,44 @@
 		<xsd:complexContent>
 			<xsd:extension base="identified-type">
 				<xsd:group ref="tulip-elements"/>
-				<xsd:attributeGroup ref="tulip-attributes"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 	
 	<xsd:group name="tulip-elements">
-		<xsd:sequence>
+		<xsd:all>
 			<xsd:element ref="commons"/>
-			<xsd:element ref="engine"/>
-			<xsd:element ref="cartridge"/>
-			<xsd:element ref="resolver"/>
-			<xsd:choice minOccurs="0" maxOccurs="unbounded">
-				<xsd:element ref="controller"/>
-			</xsd:choice>
-		</xsd:sequence>
+			<xsd:element ref="view-resolver"/>
+			<xsd:element ref="velocity-engine"/>
+			<xsd:element ref="event-cartridge"/>
+			<xsd:element ref="view-controller" minOccurs="0" maxOccurs="1"/>
+		</xsd:all>
 	</xsd:group>
 
 	<xsd:element name="commons" type="commons-type"/>
-	<xsd:element name="engine" type="engine-type"/>
-	<xsd:element name="cartridge" type="cartridge-type"/>
-	<xsd:element name="resolver" type="resolver-type"/>
-	<xsd:element name="controller" type="controller-type"/>
+	<xsd:element name="view-resolver" type="view-resolver-type"/>
+	<xsd:element name="view-controller" type="view-controller-type"/>
+	<xsd:element name="velocity-engine" type="velocity-engine-type"/>
+	<xsd:element name="event-cartridge" type="event-cartridge-type"/>
 	
 	<xsd:complexType name="commons-type">
-		<xsd:sequence>
+		<xsd:all>
 			<xsd:element name="template-dir" type="template-dir-type"/>
-		</xsd:sequence>
+			<xsd:element name="suffix" type="suffix-type"/>
+		</xsd:all>
 	</xsd:complexType>
 	
-	<xsd:complexType name="engine-type">
-		<xsd:sequence>
+	<xsd:complexType name="velocity-engine-type">
+		<xsd:complexContent>
+			<xsd:extension base="engine-configurer-type">
+				<xsd:group ref="engine-type-elements"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:group name="engine-type-elements">
+		<xsd:all>
+			<xsd:element name="velocity-configurer" type="velocity-configurer-type"/>
 			<xsd:element name="runtime.log" type="common-string-value-type"/>
 			<xsd:element name="resource.manager.class" type="common-string-value-type"/>
 			<xsd:element name="resource.manager.cache.class" type="common-string-value-type"/>
@@ -58,27 +65,35 @@
 			<xsd:element name="introspector.restrict.classes" type="common-string-value-type"/>
 			<xsd:element name="parser.pool.class" type="common-string-value-type"/>
 			<xsd:element name="parser.pool.size" type="common-integer-value-type"/>
+		</xsd:all>
+	</xsd:group>
+	
+	<xsd:complexType name="view-controller-type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="controller" type="controller-type" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
 		</xsd:sequence>
 	</xsd:complexType>
 	
 	<xsd:complexType name="controller-type">
-		
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="controller-dir" type="xsd:string" use="required"/>
 	</xsd:complexType>
 	
-	<xsd:complexType name="cartridge-type">
+	<xsd:complexType name="event-cartridge-type">
 		<xsd:choice minOccurs="0" maxOccurs="unbounded">
 			<xsd:element name="handler" type="common-string-value-type"/>
 		</xsd:choice>
 	</xsd:complexType>
 	
-	<xsd:complexType name="resolver-type">
-		<xsd:sequence>
+	<xsd:complexType name="view-resolver-type">
+		<xsd:all>
 			<xsd:element name="screen-dir" type="screen-dir-type"/>
 			<xsd:element name="layout-dir" type="layout-dir-type"/>
 			<xsd:element name="default-layout" type="default-layout-type"/>
 			<xsd:element name="screen-key" type="screen-key-type"/>
-			<xsd:element name="suffix" type="suffix-type"/>
-		</xsd:sequence>
+		</xsd:all>
 	</xsd:complexType>
 	
 	<xsd:complexType name="template-dir-type">
@@ -113,6 +128,14 @@
 		<xsd:attribute name="value" type="xsd:integer" use="required"/>
 	</xsd:complexType>
 	
+	<xsd:complexType name="velocity-configurer-type">
+		<xsd:attribute name="class" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="engine-configurer-type" abstract="true">
+		<xsd:attribute name="config-location" type="xsd:string"/>
+	</xsd:complexType>
+	
 	<xsd:complexType name="defaultable-boolean">
 		<xsd:attribute name="value" default="true">
 			<xsd:simpleType>
@@ -123,41 +146,4 @@
 			</xsd:simpleType>
 		</xsd:attribute>
 	</xsd:complexType>
-
-	<xsd:attributeGroup name="tulip-attributes">
-		<xsd:attribute name="name" type="xsd:string"/>
-		<xsd:attribute name="class" type="xsd:string"/>
-		<xsd:attribute name="lazy-init" type="xsd:boolean" default="true"/>
-		<xsd:attribute name="parent" type="xsd:string"/>
-		<xsd:attribute name="abstract" type="xsd:boolean" default="false"/>
-		<xsd:attribute name="depends-on" type="xsd:string"/>
-		<xsd:attribute name="autowire-candidate" type="xsd:boolean" default="true"/>
-		<xsd:attribute name="primary" type="xsd:boolean"/>
-		<xsd:attribute name="init-method" type="xsd:string"/>
-		<xsd:attribute name="destroy-method" type="xsd:string"/>
-		<xsd:attribute name="factory-method" type="xsd:string"/>
-		<xsd:attribute name="factory-bean" type="xsd:string"/>
-		<xsd:attribute name="dependency-check" type="xsd:string"/>
-		<xsd:attribute name="autowire" default="byName">
-			<xsd:simpleType>
-				<xsd:restriction base="xsd:NMTOKEN">
-					<xsd:enumeration value="no"/>
-					<xsd:enumeration value="byName"/>
-					<xsd:enumeration value="byType"/>
-					<xsd:enumeration value="constructor"/>
-				</xsd:restriction>
-			</xsd:simpleType>
-		</xsd:attribute>
-		<xsd:attribute name="scope" default="singleton">
-			<xsd:simpleType>
-				<xsd:restriction base="xsd:NMTOKEN">
-					<xsd:enumeration value="singleton"/>
-					<xsd:enumeration value="prototype"/>
-				</xsd:restriction>
-			</xsd:simpleType>
-		</xsd:attribute>
-	</xsd:attributeGroup>
-
-	
-	
 </xsd:schema>

@@ -5,27 +5,28 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-        http://www.itjiehun.com/schema/tulip/service http://www.itjiehun.com/schema/tulip/service-1.0.xsd
         http://www.itjiehun.com/schema/tulip/service tulip-1.0.xsd">
     
     <tulip id="tulip">
-    	<common>
+    	<commons>
     		<template-dir value="WEB-INF/templates"/>
-    	</common>
-    	<engine>
-    		<directive.foreach.skip.invalid value="true"/>
-    	</engine>
-    	<cartridge>
-    		<handler value="tulip.web.configurer.RenderableInsertionEventHandler"/>
-    		<handler value="tulip.web.configurer.RenderableInsertionEventHandler"/>
-    	</cartridge>
-    	<resolver>
+    		<suffix value=".vm"/>
+    	</commons>
+    	<view-resolver>
     		<screen-dir value="screen"/>
     		<layout-dir value="layout"/>
-    		<screen-key value="screen_placeholder"/>
     		<default-layout value="default"/>
-    		<suffix value=".vm"/>
-    	</resolver>
+    		<screen-key value="screen_placeholder"/>
+    	</view-resolver>
+    	<event-cartridge>
+    		<handler value="tulip.web.configurer.RenderableInsertionEventHandler"/>
+    	</event-cartridge>
+    	<view-controller>
+    		<controller name="control" controller-dir="control"/>
+    	</view-controller>
+    	<velocity-engine config-location="s">
+    		<velocity-configurer class=""/>
+    	</velocity-engine>
     </tulip>
 
 </beans:beans>
