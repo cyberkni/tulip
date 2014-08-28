@@ -5,9 +5,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.itjiehun.com/schema/tulip/service http://www.itjiehun.com/schema/tulip/tulip-1.0.xsd
         http://www.itjiehun.com/schema/tulip/service tulip-1.0.xsd">
     
-    <tulip id="tulip" auto-config="true">
+    <tulip auto-config="true">
     	<commons>
     		<template-dir value="WEB-INF/templates"/>
     		<suffix value=".vm"/>

@@ -6,7 +6,7 @@
 			xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
 	<xsd:complexType name="identified-type" abstract="true">
-		<xsd:attribute name="id" type="xsd:string" use="required"/>
+		<xsd:attribute name="auto-config" type="defaultable-boolean" default="true"/>
 	</xsd:complexType>
 	
 	<xsd:element name="tulip" type="tulip-type"/>
@@ -15,7 +15,6 @@
 		<xsd:complexContent>
 			<xsd:extension base="identified-type">
 				<xsd:group ref="tulip-elements"/>
-				<xsd:attributeGroup ref="tulip-attributes"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -29,10 +28,6 @@
 			<xsd:element ref="view-controller" minOccurs="0" maxOccurs="1"/>
 		</xsd:all>
 	</xsd:group>
-	
-	<xsd:attributeGroup name="tulip-attributes">
-		<xsd:attribute name="auto-config" type="defaultable-boolean" default="true"/>
-	</xsd:attributeGroup>
 
 	<xsd:element name="commons" type="commons-type"/>
 	<xsd:element name="view-resolver" type="view-resolver-type"/>
