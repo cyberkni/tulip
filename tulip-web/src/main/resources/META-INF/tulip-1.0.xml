@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.itjiehun.com/schema/tulip/service tulip-1.0.xsd">
     
-    <tulip id="tulip">
+    <tulip id="tulip" auto-config="true">
     	<commons>
     		<template-dir value="WEB-INF/templates"/>
     		<suffix value=".vm"/>
@@ -24,8 +24,9 @@
     	<view-controller>
     		<controller name="control" controller-dir="control"/>
     	</view-controller>
-    	<velocity-engine config-location="s">
-    		<velocity-configurer class=""/>
+    	<velocity-engine config-location="ss">
+    		<input.encoding value="UTF-8"/>
+    		<runtime.log value="/home/lf/logs"/>
     	</velocity-engine>
     </tulip>
 
