@@ -120,7 +120,7 @@ public class TulipView extends AbstractView {
 		try {
 			return getTemplate(name);
 		} catch (Exception e) {
-			 logger.debug("Loading View Template named : [" + name + "] Error.", e);
+			 logger.debug("Can't Loading View Template named : [" + name + "] .");
 		}
 		return null;
 	}
