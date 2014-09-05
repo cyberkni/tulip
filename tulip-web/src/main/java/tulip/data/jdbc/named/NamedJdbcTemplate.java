@@ -30,6 +30,8 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.util.Assert;
 
+import tulip.util.CollectionUtil;
+
 /**
  * Template class with a basic set of JDBC operations, allowing the use
  * of named parameters rather than traditional '?' placeholders.
@@ -221,27 +223,26 @@ public class NamedJdbcTemplate implements NamedJdbcOperations {
 	@Override
 	public <T> T queryForObject(String sql, SqlParameterSource paramSource, RowMapper<T> rowMapper)
 			throws DataAccessException {
-
 		List<T> results = getJdbcOperations().query(getPreparedStatementCreator(sql, paramSource), rowMapper);
+		if(CollectionUtil.isEmpty(results)) {
+			return null;
+		}
 		return DataAccessUtils.requiredSingleResult(results);
 	}
 
 	@Override
 	public <T> T queryForObject(String sql, Map<String, ?> paramMap, RowMapper<T> rowMapper) throws DataAccessException {
-
 		return queryForObject(sql, new MapSqlParameterSource(paramMap), rowMapper);
 	}
 
 	@Override
 	public <T> T queryForObject(String sql, SqlParameterSource paramSource, Class<T> requiredType)
 			throws DataAccessException {
-
 		return queryForObject(sql, paramSource, new SingleColumnRowMapper<T>(requiredType));
 	}
 
 	@Override
 	public <T> T queryForObject(String sql, Map<String, ?> paramMap, Class<T> requiredType) throws DataAccessException {
-
 		return queryForObject(sql, paramMap, new SingleColumnRowMapper<T>(requiredType));
 	}
 
