@@ -74,7 +74,7 @@ public class CalendarUtil {
 		List<Integer> list = new ArrayList<Integer>();
 		int year = CalendarUtil.year();
 		list.add(year);
-		for(int i = 0; i < count; i++) {
+		for(int i = 0; i < count - 1; i++) {
 			year -= 1;
 			list.add(year);
 		}
