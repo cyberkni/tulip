@@ -15,7 +15,7 @@ import java.util.List;
  * @version 1.0
  * @since 2014年8月29日 下午1:40:25
  */
-public class CalendarUtil {
+public class CalendarUtils {
 	public static final String S_YYYY_MM_DD = "yyyy-MM-dd";
 	public static final String S_YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 	public static final String Y_M_D_Z = "yyyy-MM-dd'T'HH:mm:ssZZZ";
@@ -72,7 +72,7 @@ public class CalendarUtil {
 	
 	public static List<Integer> years(int count, Comparator<Integer> c) {
 		List<Integer> list = new ArrayList<Integer>();
-		int year = CalendarUtil.year();
+		int year = CalendarUtils.year();
 		list.add(year);
 		for(int i = 0; i < count - 1; i++) {
 			year -= 1;
