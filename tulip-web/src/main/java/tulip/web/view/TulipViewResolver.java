@@ -15,11 +15,11 @@ import org.springframework.web.servlet.view.AbstractCachingViewResolver;
 public class TulipViewResolver extends AbstractCachingViewResolver implements InitializingBean {
 	
 	/** 模板文件的根目录 */
-	protected String templateDir;
+	protected String templates;
 	/** Screen模板文件目录 */
-	protected String screenDir;
+	protected String screen;
 	/** Layout模板文件目录 */
-	protected String layoutDir;
+	protected String layout;
 
 	/** Velocity模板默认加载的Layout模板名称 */
 	protected String defaultLayout;
@@ -32,9 +32,9 @@ public class TulipViewResolver extends AbstractCachingViewResolver implements In
 	@Override
 	protected View loadView(String viewName, Locale locale) throws Exception {
 		TulipView tulipView = new TulipView();
-		tulipView.setTemplateDir(templateDir);
-		tulipView.setScreenDir(screenDir);
-		tulipView.setLayoutDir(layoutDir);
+		tulipView.setTemplates(templates);
+		tulipView.setScreen(screen);
+		tulipView.setLayout(layout);
 		tulipView.setDefaultLayout(defaultLayout);
 		tulipView.setScreenKey(screenKey);
 		tulipView.setSuffix(suffix);
@@ -59,26 +59,44 @@ public class TulipViewResolver extends AbstractCachingViewResolver implements In
 		}
 	}
 
-	public void setTemplateDir(String templateDir) {
-		this.templateDir = templateDir;
+	/**
+	 * @param templates the templates to set
+	 */
+	public void setTemplates(String templates) {
+		this.templates = templates;
 	}
 
-	public void setScreenDir(String screenDir) {
-		this.screenDir = screenDir;
+	/**
+	 * @param screen the screen to set
+	 */
+	public void setScreen(String screen) {
+		this.screen = screen;
 	}
 
-	public void setLayoutDir(String layoutDir) {
-		this.layoutDir = layoutDir;
+	/**
+	 * @param layout the layout to set
+	 */
+	public void setLayout(String layout) {
+		this.layout = layout;
 	}
 
+	/**
+	 * @param defaultLayout the defaultLayout to set
+	 */
 	public void setDefaultLayout(String defaultLayout) {
 		this.defaultLayout = defaultLayout;
 	}
 
+	/**
+	 * @param screenKey the screenKey to set
+	 */
 	public void setScreenKey(String screenKey) {
 		this.screenKey = screenKey;
 	}
 
+	/**
+	 * @param suffix the suffix to set
+	 */
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
 	}

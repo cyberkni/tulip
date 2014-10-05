@@ -9,6 +9,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
  */
 public class TulipNamespaceHandler extends NamespaceHandlerSupport {
 
+	//http://www.itjiehun.com/schema/tulip/service http://www.itjiehun.com/schema/tulip/tulip-1.0.xsd
 	@Override
 	public void init() {
 		registerBeanDefinitionParser("tulip", new TulipDefinitionParser());

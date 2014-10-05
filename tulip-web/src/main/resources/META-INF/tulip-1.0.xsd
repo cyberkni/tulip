@@ -37,15 +37,15 @@
 	
 	<xsd:complexType name="commons-type">
 		<xsd:all>
-			<xsd:element name="template-dir" type="template-dir-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="templates-uri" type="templates-uri-type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="suffix" type="suffix-type" minOccurs="0" maxOccurs="1"/>
 		</xsd:all>
 	</xsd:complexType>
 	
 	<xsd:complexType name="view-resolver-type">
 		<xsd:all>
-			<xsd:element name="screen-dir" type="screen-dir-type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="layout-dir" type="layout-dir-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="screen-uri" type="screen-uri-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="layout-uri" type="layout-uri-type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="default-layout" type="default-layout-type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="screen-key" type="screen-key-type" minOccurs="0" maxOccurs="1"/>
 		</xsd:all>
@@ -91,18 +91,18 @@
 	
 	<xsd:complexType name="controller-type">
 		<xsd:attribute name="name" type="xsd:string" use="required"/>
-		<xsd:attribute name="controller-dir" type="xsd:string" use="required"/>
+		<xsd:attribute name="controller-uri" type="xsd:string" use="required"/>
 	</xsd:complexType>
 	
-	<xsd:complexType name="template-dir-type">
+	<xsd:complexType name="templates-uri-type">
 		<xsd:attribute name="value" type="xsd:string" default="WEB-INF/templates"/>
 	</xsd:complexType>
 	
-	<xsd:complexType name="screen-dir-type">
+	<xsd:complexType name="screen-uri-type">
 		<xsd:attribute name="value" type="xsd:string" default="screen"/>
 	</xsd:complexType>
 	
-	<xsd:complexType name="layout-dir-type">
+	<xsd:complexType name="layout-uri-type">
 		<xsd:attribute name="value" type="xsd:string" default="layout"/>
 	</xsd:complexType>
 	

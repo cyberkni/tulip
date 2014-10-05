@@ -10,12 +10,12 @@
     
     <tulip auto-config="true">
     	<commons>
-    		<template-dir value="WEB-INF/templates"/>
+    		<templates-uri value="WEB-INF/templates"/>
     		<suffix value=".vm"/>
     	</commons>
     	<view-resolver>
-    		<screen-dir value="screen"/>
-    		<layout-dir value="layout"/>
+    		<screen-uri value="screen"/>
+    		<layout-uri value="layout"/>
     		<default-layout value="default"/>
     		<screen-key value="screen_placeholder"/>
     	</view-resolver>
@@ -23,7 +23,7 @@
     		<handler value="tulip.web.configurer.RenderableInsertionEventHandler"/>
     	</event-cartridge>
     	<view-controller>
-    		<controller name="control" controller-dir="control"/>
+    		<controller name="control" controller-uri="control"/>
     	</view-controller>
     	<velocity-engine config-location="ss">
     		<input.encoding value="UTF-8"/>

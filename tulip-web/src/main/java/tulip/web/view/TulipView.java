@@ -32,11 +32,11 @@ import tulip.web.configurer.EventCartridgeConfigurer;
 public class TulipView extends AbstractView {
 
 	/** 模板文件的根目录 */
-	protected String templateDir;
+	protected String templates;
 	/** Screen模板文件目录 */
-	protected String screenDir;
+	protected String screen;
 	/** Layout模板文件目录 */
-	protected String layoutDir;
+	protected String layout;
 
 	/** Velocity模板默认加载的Layout模板名称 */
 	protected String defaultLayout;
@@ -177,27 +177,36 @@ public class TulipView extends AbstractView {
 	}
 
 	protected String screenURI() {
-		return File.separator + templateDir + File.separator + screenDir + File.separator + viewName + suffix;
+		return File.separator + templates + File.separator + screen + File.separator + viewName + suffix;
 	}
 
 	protected String layoutURI() {
-		return File.separator + templateDir + File.separator + layoutDir + File.separator + viewName + suffix;
+		return File.separator + templates + File.separator + layout + File.separator + viewName + suffix;
 	}
 
 	protected String defaultLayoutURI() {
-		return File.separator + templateDir + File.separator + layoutDir + File.separator + defaultLayout + suffix;
+		return File.separator + templates + File.separator + layout + File.separator + defaultLayout + suffix;
 	}
 
-	public void setTemplateDir(String templateDir) {
-		this.templateDir = templateDir;
+	/**
+	 * @param templates the templates to set
+	 */
+	public void setTemplates(String templates) {
+		this.templates = templates;
 	}
 
-	public void setScreenDir(String screenDir) {
-		this.screenDir = screenDir;
+	/**
+	 * @param screen the screen to set
+	 */
+	public void setScreen(String screen) {
+		this.screen = screen;
 	}
 
-	public void setLayoutDir(String layoutDir) {
-		this.layoutDir = layoutDir;
+	/**
+	 * @param layout the layout to set
+	 */
+	public void setLayout(String layout) {
+		this.layout = layout;
 	}
 
 	public void setDefaultLayout(String defaultLayout) {
