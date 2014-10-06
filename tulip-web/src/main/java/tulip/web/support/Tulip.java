@@ -8,51 +8,17 @@ package tulip.web.support;
  */
 public class Tulip {
 	
-	private boolean auto_config;
+	protected static final String VELOCITY_ENGINE_TAG = "velocity-engine";
+	protected static final String VIEW_CONTROLLER_TAG = "view-controller";
+	protected static final String EVENT_CARTRIDGE_TAG = "event-cartridge";
+	protected static final String VIEW_RESOLVER_TAG = "view-resolver";
+	protected static final String COMMONS_TAG = "commons";
 	
-	private String templates_uri;
+	public Tulip() {
+		super();
+	}
 	
-	private String suffix;
-
-	/**
-	 * @return the templates_uri
-	 */
-	public String getTemplates_uri() {
-		return templates_uri;
-	}
-
-	/**
-	 * @param templates_uri the templates_uri to set
-	 */
-	public void setTemplates_uri(String templates_uri) {
-		this.templates_uri = templates_uri;
-	}
-
-	/**
-	 * @return the suffix
-	 */
-	public String getSuffix() {
-		return suffix;
-	}
-
-	/**
-	 * @param suffix the suffix to set
-	 */
-	public void setSuffix(String suffix) {
-		this.suffix = suffix;
-	}
-
-	/**
-	 * @return the auto_config
-	 */
-	public boolean isAuto_config() {
-		return auto_config;
-	}
-
-	/**
-	 * @param auto_config the auto_config to set
-	 */
-	public void setAuto_config(boolean auto_config) {
-		this.auto_config = auto_config;
-	}
+	protected boolean auto_config;
+	protected String templates_uri;
+	protected String suffix;
 }
