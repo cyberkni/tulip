@@ -9,7 +9,7 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/mina/mina-core/2.0.7/mina-core-2.0.7.jar" sourcepath="M2_REPO/org/apache/mina/mina-core/2.0.7/mina-core-2.0.7-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jboss/netty/netty/3.2.9.Final/netty-3.2.9.Final.jar" sourcepath="M2_REPO/org/jboss/netty/netty/3.2.9.Final/netty-3.2.9.Final-sources.jar"/>
-  <classpathentry kind="lib" path="/home/lf/tel/netty/netty-4.0.15.Final/jar/all-in-one/netty-all-4.0.15.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty/3.9.4.Final/netty-3.9.4.Final.jar" sourcepath="M2_REPO/io/netty/netty/3.9.4.Final/netty-3.9.4.Final-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-http/4.0.23.Final/netty-codec-http-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-codec-http/4.0.23.Final/netty-codec-http-4.0.23.Final-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec/4.0.23.Final/netty-codec-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-codec/4.0.23.Final/netty-codec-4.0.23.Final-sources.jar"/>
@@ -24,7 +24,7 @@
   <classpathentry kind="var" path="M2_REPO/io/netty/netty-example/4.0.23.Final/netty-example-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-example/4.0.23.Final/netty-example-4.0.23.Final-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.jar" sourcepath="M2_REPO/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-sources.jar">
     <attributes>
-      <attribute value="jar:file:/home/lf/m2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/E:/.m2/repository/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/npn/npn-api/8.1.2.v20120308/npn-api-8.1.2.v20120308.jar" sourcepath="M2_REPO/org/eclipse/jetty/npn/npn-api/8.1.2.v20120308/npn-api-8.1.2.v20120308-sources.jar"/>

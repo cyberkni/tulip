@@ -40,21 +40,21 @@
 			<version>3.9.4.Final</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty</artifactId>
 			<version>5.0.0.Alpha1</version>
 			<scope>system</scope>
 			<systemPath>/home/lf/tel/netty/netty-5.0.0.Alpha1/jar/all-in-one/netty-all-5.0.0.Alpha1.jar</systemPath>
-		</dependency>
+		</dependency> -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty</artifactId>
 			<version>4.0.15.Final</version>
 			<scope>system</scope>
 			<systemPath>/home/lf/tel/netty/netty-4.0.15.Final/jar/all-in-one/netty-all-4.0.15.Final.jar</systemPath>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>io.netty</groupId>
