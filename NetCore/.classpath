@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src/test/resources" output="target/test-classes" excluding="**/*.java"/>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/mina/mina-core/2.0.7/mina-core-2.0.7.jar" sourcepath="M2_REPO/org/apache/mina/mina-core/2.0.7/mina-core-2.0.7-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/netty/netty/3.2.9.Final/netty-3.2.9.Final.jar" sourcepath="M2_REPO/org/jboss/netty/netty/3.2.9.Final/netty-3.2.9.Final-sources.jar"/>
+  <classpathentry kind="lib" path="/home/lf/tel/netty/netty-4.0.15.Final/jar/all-in-one/netty-all-4.0.15.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-http/4.0.23.Final/netty-codec-http-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-codec-http/4.0.23.Final/netty-codec-http-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec/4.0.23.Final/netty-codec-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-codec/4.0.23.Final/netty-codec-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-transport/4.0.23.Final/netty-transport-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-transport/4.0.23.Final/netty-transport-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-buffer/4.0.23.Final/netty-buffer-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-buffer/4.0.23.Final/netty-buffer-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-common/4.0.23.Final/netty-common-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-common/4.0.23.Final/netty-common-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-handler/4.0.23.Final/netty-handler-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-handler/4.0.23.Final/netty-handler-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-transport-sctp/4.0.23.Final/netty-transport-sctp-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-transport-sctp/4.0.23.Final/netty-transport-sctp-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-socks/4.0.23.Final/netty-codec-socks-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-codec-socks/4.0.23.Final/netty-codec-socks-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-transport-udt/4.0.23.Final/netty-transport-udt-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-transport-udt/4.0.23.Final/netty-transport-udt-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/barchart/udt/barchart-udt-bundle/2.3.0/barchart-udt-bundle-2.3.0.jar" sourcepath="M2_REPO/com/barchart/udt/barchart-udt-bundle/2.3.0/barchart-udt-bundle-2.3.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-example/4.0.23.Final/netty-example-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-example/4.0.23.Final/netty-example-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.jar" sourcepath="M2_REPO/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/lf/m2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/npn/npn-api/8.1.2.v20120308/npn-api-8.1.2.v20120308.jar" sourcepath="M2_REPO/org/eclipse/jetty/npn/npn-api/8.1.2.v20120308/npn-api-8.1.2.v20120308-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/jcraft/jzlib/1.1.2/jzlib-1.1.2.jar" sourcepath="M2_REPO/com/jcraft/jzlib/1.1.2/jzlib-1.1.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/javassist/javassist/3.18.0-GA/javassist-3.18.0-GA.jar" sourcepath="M2_REPO/org/javassist/javassist/3.18.0-GA/javassist-3.18.0-GA-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar" sourcepath="M2_REPO/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-transport-rxtx/4.0.23.Final/netty-transport-rxtx-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-transport-rxtx/4.0.23.Final/netty-transport-rxtx-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/rxtx/rxtx/2.1.7/rxtx-2.1.7.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-memcache/4.1.0.Beta3/netty-codec-memcache-4.1.0.Beta3.jar" sourcepath="M2_REPO/io/netty/netty-codec-memcache/4.1.0.Beta3/netty-codec-memcache-4.1.0.Beta3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-stomp/4.1.0.Beta3/netty-codec-stomp-4.1.0.Beta3.jar" sourcepath="M2_REPO/io/netty/netty-codec-stomp/4.1.0.Beta3/netty-codec-stomp-4.1.0.Beta3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-haproxy/4.1.0.Beta3/netty-codec-haproxy-4.1.0.Beta3.jar" sourcepath="M2_REPO/io/netty/netty-codec-haproxy/4.1.0.Beta3/netty-codec-haproxy-4.1.0.Beta3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-mqtt/4.1.0.Beta3/netty-codec-mqtt-4.1.0.Beta3.jar" sourcepath="M2_REPO/io/netty/netty-codec-mqtt/4.1.0.Beta3/netty-codec-mqtt-4.1.0.Beta3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-dns/4.1.0.Beta3/netty-codec-dns-4.1.0.Beta3.jar" sourcepath="M2_REPO/io/netty/netty-codec-dns/4.1.0.Beta3/netty-codec-dns-4.1.0.Beta3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-transport-native-epoll/4.0.23.Final/netty-transport-native-epoll-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-transport-native-epoll/4.0.23.Final/netty-transport-native-epoll-4.0.23.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/yammer/metrics/metrics-web/2.2.0/metrics-web-2.2.0.jar" sourcepath="M2_REPO/com/yammer/metrics/metrics-web/2.2.0/metrics-web-2.2.0-sources.jar"/>
+</classpath>
