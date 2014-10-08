@@ -84,21 +84,21 @@ public class TulipDefinitionParser extends Tulip implements BeanDefinitionParser
 		if(len > 0) {
 			Element velocityEngine = (Element) velocityEngineList.item(0);
 			configuration.setProperty("tulip:config-location", velocityEngine.getAttribute("config-location"));
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
-			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
+//			configuration.setProperty(key, value);
 			
 		}
 	}
