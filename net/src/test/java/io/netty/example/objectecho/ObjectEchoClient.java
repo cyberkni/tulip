@@ -52,7 +52,7 @@ public class ObjectEchoClient {
                 public void initChannel(SocketChannel ch) throws Exception {
                     ch.pipeline().addLast(
                             new ObjectEncoder(),
-                            new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
+                            new ObjectDecoder(ClassResolvers.cacheDisabled(this.getClass().getClassLoader())),
                             new ObjectEchoClientHandler(firstMessageSize));
                 }
              });
@@ -66,6 +66,7 @@ public class ObjectEchoClient {
 
     public static void main(String[] args) throws Exception {
         // Print usage if no argument is specified.
+    	args = new String[]{"127.0.0.1", "8080"};
         if (args.length < 2 || args.length > 3) {
             System.err.println(
                     "Usage: " + ObjectEchoClient.class.getSimpleName() +

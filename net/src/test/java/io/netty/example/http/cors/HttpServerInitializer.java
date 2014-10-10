@@ -73,9 +73,7 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     public void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-
-        CorsConfig corsConfig = CorsConfig.anyOrigin().build();
-
+        CorsConfig corsConfig = CorsConfig.withAnyOrigin().build();
         pipeline.addLast("decoder", new HttpRequestDecoder());
         pipeline.addLast("aggregator", new HttpObjectAggregator(65536));
         pipeline.addLast("encoder", new HttpResponseEncoder());

@@ -82,6 +82,7 @@ public class SecureChatClient {
 
     public static void main(String[] args) throws Exception {
         // Print usage if no argument is specified.
+    	args= new String[]{"127.0.0.1", "8443"};
         if (args.length != 2) {
             System.err.println(
                     "Usage: " + SecureChatClient.class.getSimpleName() +

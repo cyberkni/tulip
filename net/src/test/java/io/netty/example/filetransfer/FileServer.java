@@ -36,6 +36,9 @@ import io.netty.util.CharsetUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.nio.charset.Charset;
 
 /**
  * Server that accept the path of a file an echo back its content.
@@ -81,7 +84,7 @@ public class FileServer {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main1(String[] args) throws Exception {
         int port;
         if (args.length > 0) {
             port = Integer.parseInt(args[0]);
@@ -90,10 +93,19 @@ public class FileServer {
         }
         new FileServer(port).run();
     }
+    
+    public static void main(String[] args) throws Exception {
+		Socket socket = new Socket("127.0.0.1", 8080);
+		OutputStream out = socket.getOutputStream();
+		out.write("/home/lf/charm.txt".getBytes(Charset.forName("UTF-8")));
+		out.flush();
+		out.close();
+	}
 
     private static final class FileHandler extends SimpleChannelInboundHandler<String> {
         @Override
         public void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        	System.out.println("msg : " + msg);
             File file = new File(msg);
             if (file.exists()) {
                 if (!file.isFile()) {

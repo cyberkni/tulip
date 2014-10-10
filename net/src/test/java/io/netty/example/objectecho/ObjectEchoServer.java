@@ -49,7 +49,7 @@ public class ObjectEchoServer {
                 public void initChannel(SocketChannel ch) throws Exception {
                     ch.pipeline().addLast(
                             new ObjectEncoder(),
-                            new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
+                            new ObjectDecoder(ClassResolvers.cacheDisabled(this.getClass().getClassLoader())),
                             new ObjectEchoServerHandler());
                 }
              });

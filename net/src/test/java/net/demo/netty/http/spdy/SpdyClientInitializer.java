@@ -12,6 +12,8 @@ import io.netty.handler.ssl.SslHandler;
 import net.demo.netty.textprotocols.securechat.SecureChatSslContextFactory;
 
 import org.eclipse.jetty.npn.NextProtoNego;
+import org.jboss.netty.handler.codec.spdy.SpdyFrameCodec;
+import org.jboss.netty.handler.codec.spdy.SpdyVersion;
 
 import javax.net.ssl.SSLEngine;
 
@@ -38,8 +40,8 @@ public class SpdyClientInitializer extends ChannelInitializer<SocketChannel> {
 		ChannelPipeline pipeline = ch.pipeline();
 
 		pipeline.addLast("ssl", new SslHandler(engine));
-		pipeline.addLast("spdyEncoder", new SpdyFrameEncoder(SPDY_3_1));
-		pipeline.addLast("spdyDecoder", new SpdyFrameDecoder(SPDY_3_1));
+//		pipeline.addLast("spdyEncoder", new SpdyFrameEncoder(SPDY_3_1));
+//		pipeline.addLast("spdyDecoder", new SpdyFrameDecoder(SPDY_3_1, new SpdyFrameCodec(SpdyVersion.SPDY_3_1)));
 		pipeline.addLast("spdyFrameLogger", new SpdyFrameLogger(INFO));
 		pipeline.addLast("spdySessionHandler", new SpdySessionHandler(SPDY_3_1, false));
 		pipeline.addLast("spdyHttpEncoder", new SpdyHttpEncoder(SPDY_3_1));

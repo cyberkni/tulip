@@ -59,6 +59,7 @@ public class ObjectEchoClientHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         // Echo back the received object to the server.
         ctx.write(msg);
+        System.out.println("from server : " + msg);
     }
 
     @Override

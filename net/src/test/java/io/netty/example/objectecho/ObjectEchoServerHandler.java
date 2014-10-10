@@ -35,6 +35,7 @@ public class ObjectEchoServerHandler extends ChannelInboundHandlerAdapter {
             ChannelHandlerContext ctx, Object msg) throws Exception {
         // Echo back the received object to the client.
         ctx.write(msg);
+        System.out.println("from client : " + msg);
     }
 
     @Override
