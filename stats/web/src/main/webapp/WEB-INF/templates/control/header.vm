@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" style="position:fixed;z-index:99;">
 	<a href="home.htm" class="logo" target="_self" style="background-color: #2E3339;">Ruoogle Analytics</a>
 	<nav class="navbar navbar-static-top" role="navigation" style="background-color: #2E3339;">
 		<a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
