@@ -18,6 +18,7 @@ package net.demo.netty.http.websockets;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -34,6 +35,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
 import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
 import io.netty.util.CharsetUtil;
 
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,7 +51,7 @@ import static io.netty.handler.codec.http.HttpVersion.*;
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
 	private static final Logger logger = Logger.getLogger(WebSocketServerHandler.class.getName());
 
-	private static final String WEBSOCKET_PATH = "/websocket";
+	private static final String WEBSOCKET_PATH = "/215799";
 
 	private WebSocketServerHandshaker handshaker;
 
@@ -60,6 +62,22 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 		} else if (msg instanceof WebSocketFrame) {
 			handleWebSocketFrame(ctx, (WebSocketFrame) msg);
 		}
+	}
+
+	@Override
+	public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+		super.handlerAdded(ctx);
+		Channel channel = ctx.channel();
+		WebSocketServer.channels.put(channel.hashCode(), channel);
+		System.err.println("handlerAdded : " + channel);
+	}
+
+	@Override
+	public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+		super.handlerRemoved(ctx);
+		Channel channel = ctx.channel();
+		WebSocketServer.channels.put(channel.hashCode(), channel);
+		System.err.println("handlerRemoved : " + channel);
 	}
 
 	@Override
@@ -79,7 +97,6 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 			sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HTTP_1_1, FORBIDDEN));
 			return;
 		}
-
 		// Send the demo page and favicon.ico
 		if ("/".equals(req.getUri())) {
 			ByteBuf content = WebSocketServerIndexPage.getContent(getWebSocketLocation(req));
@@ -109,8 +126,6 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 	}
 
 	private void handleWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame) {
-
-		// Check for closing frame
 		if (frame instanceof CloseWebSocketFrame) {
 			handshaker.close(ctx.channel(), (CloseWebSocketFrame) frame.retain());
 			return;
@@ -123,13 +138,18 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 			throw new UnsupportedOperationException(String.format("%s frame types not supported", frame.getClass()
 					.getName()));
 		}
-
-		// Send the uppercase string back.
 		String request = ((TextWebSocketFrame) frame).text();
 		if (logger.isLoggable(Level.FINE)) {
 			logger.fine(String.format("%s received %s", ctx.channel(), request));
 		}
 		ctx.channel().write(new TextWebSocketFrame(request.toUpperCase()));
+		for (Map.Entry<Integer, Channel> e : WebSocketServer.channels.entrySet()) {
+			Integer id = e.getKey();
+			Channel channel = e.getValue();
+			if(channel.isActive()) {
+				channel.write(new TextWebSocketFrame(request.toUpperCase()));
+			}
+		}
 	}
 
 	private static void sendHttpResponse(ChannelHandlerContext ctx, FullHttpRequest req, FullHttpResponse res) {
@@ -155,6 +175,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 	}
 
 	private static String getWebSocketLocation(FullHttpRequest req) {
+		System.out.println("URI : " + req.getUri());
 		return "ws://" + req.headers().get(HOST) + WEBSOCKET_PATH;
 	}
 }

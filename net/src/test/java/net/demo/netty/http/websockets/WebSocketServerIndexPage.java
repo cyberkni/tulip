@@ -28,7 +28,8 @@ public final class WebSocketServerIndexPage {
 	private static final String NEWLINE = "\r\n";
 
 	public static ByteBuf getContent(String webSocketLocation) {
-		return Unpooled.copiedBuffer("<html><head><title>Web Socket Test</title></head>" + NEWLINE + "<body>" + NEWLINE
+		String s = "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
+				+ "<html><head><title>Web Socket Test</title></head>" + NEWLINE + "<body>" + NEWLINE
 				+ "<script type=\"text/javascript\">" + NEWLINE + "var socket;" + NEWLINE + "if (!window.WebSocket) {"
 				+ NEWLINE + "  window.WebSocket = window.MozWebSocket;" + NEWLINE + '}' + NEWLINE
 				+ "if (window.WebSocket) {" + NEWLINE + "  socket = new WebSocket(\"" + webSocketLocation + "\");"
@@ -50,7 +51,9 @@ public final class WebSocketServerIndexPage {
 				+ "<input type=\"button\" value=\"Send Web Socket Data\"" + NEWLINE
 				+ "       onclick=\"send(this.form.message.value)\" />" + NEWLINE + "<h3>Output</h3>" + NEWLINE
 				+ "<textarea id=\"responseText\" style=\"width:500px;height:300px;\"></textarea>" + NEWLINE + "</form>"
-				+ NEWLINE + "</body>" + NEWLINE + "</html>" + NEWLINE, CharsetUtil.US_ASCII);
+				+ NEWLINE + "</body>" + NEWLINE + "</html>" + NEWLINE;
+//		System.out.println(s);
+		return Unpooled.copiedBuffer(s, CharsetUtil.US_ASCII);
 	}
 
 	private WebSocketServerIndexPage() {

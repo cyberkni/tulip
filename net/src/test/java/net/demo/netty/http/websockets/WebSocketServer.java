@@ -1,5 +1,7 @@
 package net.demo.netty.http.websockets;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
@@ -30,6 +32,8 @@ public class WebSocketServer {
 
 	private final int port;
 
+	public static ConcurrentHashMap<Integer, Channel> channels = new ConcurrentHashMap<Integer, Channel>();
+	
 	public WebSocketServer(int port) {
 		this.port = port;
 	}
