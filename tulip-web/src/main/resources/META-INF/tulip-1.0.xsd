@@ -6,7 +6,7 @@
 			xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
 	<xsd:complexType name="identified-type" abstract="true">
-		<xsd:attribute name="auto-config" type="defaultable-boolean" default="true"/>
+		<!-- <xsd:attribute name="auto-config" type="defaultable-boolean" default="true"/> -->
 	</xsd:complexType>
 	
 	<xsd:element name="tulip" type="tulip-type"/>
@@ -74,7 +74,6 @@
 	<xsd:group name="engine-type-elements">
 		<xsd:all>
 			<xsd:element name="velocity-configurer" type="velocity-configurer-type" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="runtime.log" type="common-string-value-type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="resource.manager.class" type="common-string-value-type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="resource.manager.cache.class" type="common-string-value-type" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="resource.manager.cache.size" type="common-integer-value-type" minOccurs="0" maxOccurs="1"/>

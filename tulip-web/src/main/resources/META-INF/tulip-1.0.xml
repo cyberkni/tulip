@@ -8,7 +8,7 @@
         http://www.itjiehun.com/schema/tulip/service http://www.itjiehun.com/schema/tulip/tulip-1.0.xsd
         http://www.itjiehun.com/schema/tulip/service tulip-1.0.xsd">
     
-    <tulip auto-config="true">
+    <tulip>
     	<commons>
     		<templates-uri value="WEB-INF/templates"/>
     		<suffix value=".vm"/>
@@ -27,7 +27,6 @@
     	</view-controller>
     	<velocity-engine config-location="ss">
     		<input.encoding value="UTF-8"/>
-    		<runtime.log value="/home/lf/logs"/>
     	</velocity-engine>
     </tulip>
 
