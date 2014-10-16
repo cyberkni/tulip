@@ -13,12 +13,12 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.1.4/httpcore-4.1.4.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpcore/4.1.4/httpcore-4.1.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" sourcepath="M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar">
     <attributes>
-      <attribute value="jar:file:/E:/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/home/lf/m2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" sourcepath="M2_REPO/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar">
     <attributes>
-      <attribute value="jar:file:/E:/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/home/lf/m2/commons-codec/commons-codec/1.4/commons-codec-1.4-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/jgit/org.eclipse.jgit.http.server/3.5.0.201409260305-r/org.eclipse.jgit.http.server-3.5.0.201409260305-r.jar" sourcepath="M2_REPO/org/eclipse/jgit/org.eclipse.jgit.http.server/3.5.0.201409260305-r/org.eclipse.jgit.http.server-3.5.0.201409260305-r-sources.jar"/>
@@ -42,7 +42,7 @@
   <classpathentry kind="var" path="M2_REPO/io/netty/netty-example/4.0.23.Final/netty-example-4.0.23.Final.jar" sourcepath="M2_REPO/io/netty/netty-example/4.0.23.Final/netty-example-4.0.23.Final-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.jar" sourcepath="M2_REPO/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-sources.jar">
     <attributes>
-      <attribute value="jar:file:/E:/.m2/repository/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/home/lf/m2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/npn/npn-api/8.1.2.v20120308/npn-api-8.1.2.v20120308.jar" sourcepath="M2_REPO/org/eclipse/jetty/npn/npn-api/8.1.2.v20120308/npn-api-8.1.2.v20120308-sources.jar"/>
