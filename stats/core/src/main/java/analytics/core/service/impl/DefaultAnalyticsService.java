@@ -37,9 +37,15 @@ public class DefaultAnalyticsService extends BaseService implements AnalyticsSer
 		if(Static.YEAR == type) {
 			return report_year(labelId, year, 10, type);
 		} else if(Static.MONTH == type) {
-			return report_month(labelId, year, month, type);
+			if(CalendarUtil.year() == year) {// 今年
+				return report_month(labelId, year, month, type);
+			}
+			return report_month(labelId, year, 12, type);
 		} else if(Static.DAY_OF_MONTH == type) {
-			return report_day(labelId, year, month, day, type);
+			if(CalendarUtil.month() == month) {// 当月
+				return report_day(labelId, year, month, day, type);
+			}
+			return report_day(labelId, year, month, 31, type);
 		} else if(Static.HOUR_OF_DAY == type) {
 			int hour = CalendarUtil.hour();
 			if(CalendarUtil.day() != day) {
