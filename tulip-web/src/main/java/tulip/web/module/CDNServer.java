@@ -1,5 +1,7 @@
 package tulip.web.module;
 
+import tulip.util.StringUtil;
+
 /**
  * 
  * @author 刘飞 E-mail:liufei_it@126.com
@@ -8,14 +10,36 @@ package tulip.web.module;
  */
 public class CDNServer extends BaseModule {
 
-	protected String host;
-	protected int port;
-	protected String context;
+	public static final String HTTP_PROTOCOL = "http";
+	public static final int PORT_80 = 80;
+	
+	protected String protocol = HTTP_PROTOCOL;
+	
+	protected String host = StringUtil.EMPTY;
+	protected int port = PORT_80;
+	protected String context = StringUtil.EMPTY;
 	protected String name;
+	
+	private String profile;
+	
+	public String getProfile() {
+		if(StringUtil.isBlank(profile)) {
+			profile = new StringBuffer()
+			.append(protocol).append("://")
+			.append(host).append((port == PORT_80 ? StringUtil.EMPTY : port))
+			.append("/").append((StringUtil.isBlank(context) ? StringUtil.EMPTY : (context + "/")))
+			.toString();
+		}
+		return profile;
+	}
 
 	@Override
 	public String render() {
-		return "http://" + host + ":" + port + "/" + context + "/" + name;
+		return getProfile() + name;
+	}
+	
+	public void setProtocol(String protocol) {
+		this.protocol = protocol;
 	}
 
 	public void setHost(String host) {
