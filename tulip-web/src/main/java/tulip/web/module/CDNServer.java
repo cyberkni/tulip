@@ -26,7 +26,7 @@ public class CDNServer extends BaseModule {
 		if(StringUtil.isBlank(profile)) {
 			profile = new StringBuffer()
 			.append(protocol).append("://")
-			.append(host).append((port == PORT_80 ? StringUtil.EMPTY : port))
+			.append(host).append((port == PORT_80 ? StringUtil.EMPTY : (":" + port)))
 			.append("/").append((StringUtil.isBlank(context) ? StringUtil.EMPTY : (context + "/")))
 			.toString();
 		}
