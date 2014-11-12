@@ -8,7 +8,7 @@
 	<description>郁金香</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<deploy.basedir>/home/lf/mvn/deploy</deploy.basedir>
+		<deploy.basedir>/Users/feiliu/dev/deploy</deploy.basedir>
 	</properties>
 	<repositories>
 		<repository>
