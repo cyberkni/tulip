@@ -1,0 +1,16 @@
+# Ns
+nsHome=${user.home}/.ns_config
+
+# Lnk
+ti-lnk.concurrent=10
+ti-lnk.handler.concurrent=8
+ti-lnk.sync.handler.concurrent=5
+qserver-id='/amqp/queue'
+ti-lnk-srv-lookup-file=${user.home}/.ti_config/lookup/ti-lnk-srv-lookup
+
+# Redis
+redis.server=127.0.0.1
+redis.port=6379
+redis.timeout=3000
+redis.core.size=1000
+redis.ttl=1000

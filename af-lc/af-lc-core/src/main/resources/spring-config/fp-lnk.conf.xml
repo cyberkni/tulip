@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:ti-lnk="http://www.andpay.me/schema/ti/ti-lnk"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.andpay.me/schema/ti/ti-lnk http://www.andpay.me/schema/ti/ti-lnk/ti-lnk-1.1.0.xsd">
+
+	<context:annotation-config />
+
+	<ti-lnk:rpc id="fp-lnk.Rpc" 
+		callback-object-concurrent="${ti-lnk.concurrent}" 
+		callback-object-context-handler-concurrent="${ti-lnk.handler.concurrent}" 
+		async-call-result-handler-concurrent="${ti-lnk.sync.handler.concurrent}" 
+		default-protocol-content-type="application/json-jackson-smile"
+		lookup-file="${ti-lnk-srv-lookup-file}">
+		<ti-lnk:transport-amqp-server qserver-id="${qserver-id}"/>
+	</ti-lnk:rpc>
+
+</beans>
