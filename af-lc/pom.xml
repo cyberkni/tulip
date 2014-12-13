@@ -20,6 +20,7 @@
 
 	<dependencies>
 
+		<!--
 		<dependency>
 			<groupId>me.andpay.ti.ti-dfs</groupId>
 			<artifactId>ti-dfs-api</artifactId>
@@ -164,6 +165,7 @@
 			<artifactId>ti-quartz-srv</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
+		-->
 
 
 		<dependency>
