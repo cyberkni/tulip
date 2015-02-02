@@ -1,6 +1,6 @@
 package tulip.web.module;
 
-import tulip.util.StringUtil;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * 
@@ -15,19 +15,19 @@ public class CDNServer extends BaseModule {
 	
 	protected String protocol = HTTP_PROTOCOL;
 	
-	protected String host = StringUtil.EMPTY;
+	protected String host = StringUtils.EMPTY;
 	protected int port = PORT_80;
-	protected String context = StringUtil.EMPTY;
+	protected String context = StringUtils.EMPTY;
 	protected String name;
 	
 	private String profile;
 	
 	public String getProfile() {
-		if(StringUtil.isBlank(profile)) {
+		if(StringUtils.isBlank(profile)) {
 			profile = new StringBuffer()
 			.append(protocol).append("://")
-			.append(host).append((port == PORT_80 ? StringUtil.EMPTY : (":" + port)))
-			.append("/").append((StringUtil.isBlank(context) ? StringUtil.EMPTY : (context + "/")))
+			.append(host).append((port == PORT_80 ? StringUtils.EMPTY : (":" + port)))
+			.append("/").append((StringUtils.isBlank(context) ? StringUtils.EMPTY : (context + "/")))
 			.toString();
 		}
 		return profile;

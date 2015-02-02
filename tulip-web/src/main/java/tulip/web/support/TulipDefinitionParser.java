@@ -1,5 +1,6 @@
 package tulip.web.support;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -11,9 +12,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.ClassUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
-import tulip.util.ConvertUtils;
-import tulip.util.StringUtil;
 
 /**
  * @author 刘飞 E-mail:liufei_it@126.com
@@ -59,7 +57,7 @@ public class TulipDefinitionParser extends Tulip implements BeanDefinitionParser
 		if (len > 0) {
 			for (int i = 0; i < len; i++) {
 				String handler = parseItem((Element) eventCartridgeList.item(i), EVENT_HANDLER_TAG, "");
-				if(StringUtil.isBlank(handler)) {
+				if(StringUtils.isBlank(handler)) {
 					continue;
 				}
 				try {
@@ -85,7 +83,7 @@ public class TulipDefinitionParser extends Tulip implements BeanDefinitionParser
 			Element velocityEngine = (Element) velocityEngineList.item(0);
 			config_location = velocityEngine.getAttribute("config-location");
 			String velocity_configurer = parseItem(element, "velocity-configurer", "", "class");
-			if(StringUtil.isNotBlank(velocity_configurer)) {
+			if(StringUtils.isNotBlank(velocity_configurer)) {
 				try {
 					velocity_engine_configurer = ClassUtils.getDefaultClassLoader().loadClass(velocity_configurer);
 				} catch (Exception e) {
@@ -106,6 +104,6 @@ public class TulipDefinitionParser extends Tulip implements BeanDefinitionParser
 			return defaultValue;
 		}
 		Element item = (Element) itemsList.item(0);
-		return StringUtil.defaultIfBlank(item.getAttribute(key), defaultValue);
+		return StringUtils.defaultIfBlank(item.getAttribute(key), defaultValue);
 	}
 }

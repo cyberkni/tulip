@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -15,10 +16,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContextException;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.servlet.view.velocity.VelocityConfig;
 
-import tulip.util.CollectionUtil;
-import tulip.util.StringUtil;
 import tulip.web.configurer.EventCartridgeConfigurer;
 
 /**
@@ -48,7 +48,7 @@ public class Controller extends BaseModule {
 		} catch (Exception e) {
 			logger.error(String.format("Try Loading And Rending Controller Module Named [%s] Error.", templateURI), e);
 		}
-		return StringUtil.EMPTY;
+		return StringUtils.EMPTY;
 	}
 	
 	protected Context createVelocityContext(Map<String, Object> model) {
@@ -66,7 +66,7 @@ public class Controller extends BaseModule {
 
 	protected String render(Context context, Template template) {
 		if (template == null || context == null) {
-			return StringUtil.EMPTY;
+			return StringUtils.EMPTY;
 		}
 		try {
 			StringWriter sw = new StringWriter();
@@ -75,7 +75,7 @@ public class Controller extends BaseModule {
 		} catch (Exception e) {
 			logger.error(String.format("Controller Module Named [%s] Render Error.", template.getName()), e);
 		}
-		return StringUtil.EMPTY;
+		return StringUtils.EMPTY;
 	}
 
 	protected Template getTemplate(String name) throws Exception {
@@ -83,7 +83,7 @@ public class Controller extends BaseModule {
 	}
 	
 	public Controller with(String key, Object val) {
-		if(StringUtil.isBlank(key) || val == null) {
+		if(StringUtils.isBlank(key) || val == null) {
 			return this;
 		}
 		if(model == null) {
@@ -95,10 +95,10 @@ public class Controller extends BaseModule {
 	
 	protected Map<String, Object> createMergedOutputModel() {
 		Map<String, Object> mergedModel = new LinkedHashMap<String, Object>();
-		if(!CollectionUtil.isEmpty(Module.MODULES)) {
+		if(!CollectionUtils.isEmpty(Module.MODULES)) {
 			mergedModel.putAll(Module.MODULES);
 		}
-		if(!CollectionUtil.isEmpty(model)) {
+		if(!CollectionUtils.isEmpty(model)) {
 			mergedModel.putAll(model);
 		}
 		return mergedModel;

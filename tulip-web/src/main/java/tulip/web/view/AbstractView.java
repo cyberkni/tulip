@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.http.MediaType;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.context.support.WebApplicationObjectSupport;
 import org.springframework.web.servlet.View;
 
-import tulip.util.CollectionUtil;
 import tulip.web.module.Module;
 
 /**
@@ -79,7 +79,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 		if (model != null) {
 			mergedModel.putAll(model);
 		}
-		if(!CollectionUtil.isEmpty(Module.MODULES)) {
+		if(!CollectionUtils.isEmpty(Module.MODULES)) {
 			mergedModel.putAll(Module.MODULES);
 		}
 		return mergedModel;

@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -20,7 +21,6 @@ import org.springframework.context.ApplicationContextException;
 import org.springframework.web.servlet.view.velocity.VelocityConfig;
 import org.springframework.web.util.NestedServletException;
 
-import tulip.util.StringUtil;
 import tulip.web.configurer.EventCartridgeConfigurer;
 
 /**
@@ -87,7 +87,7 @@ public class TulipView extends AbstractView {
 	 */
 	protected String templateRender(Context context, Template template) {
 		if (template == null || context == null) {
-			return StringUtil.EMPTY;
+			return StringUtils.EMPTY;
 		}
 		try {
 			StringWriter sw = new StringWriter();
@@ -96,7 +96,7 @@ public class TulipView extends AbstractView {
 		} catch (Exception e) {
 			logger.error(String.format("View Named [%s] Render Error.", template.getName()), e);
 		}
-		return StringUtil.EMPTY;
+		return StringUtils.EMPTY;
 	}
 
 	/**
