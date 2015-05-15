@@ -16,7 +16,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 public class JGit {
 
 	public static void main(String[] args) throws Exception {
-		Git git = Git.open(new File("/home/lf/workspace/tulip"));
+		Git git = Git.open(new File("/Users/yp/workspace/ocs"));
 		for (RevCommit revCommit : git.log().call()) {
 			System.out.println("CommitTime : " + revCommit.getCommitTime());
 			System.out.println("FullMessage : " + revCommit.getFullMessage());
